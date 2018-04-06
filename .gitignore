@@ -1,0 +1,5 @@
+cache/
+databases/
+errors/
+sessions/
+private/appconfig.ini
