@@ -8,7 +8,7 @@
   <div class="card-body">
     {{ for button in buttons: }}
          {{ if button.button_group_id == group.id: }}
-         <a class="btn {{ if button.outline: }}btn-outline{{ else: }}btn-{{ pass }}{{ =button.bootstrap_class[0] }}" href="{{ =button.url }}">{{ =button.name }}</a>
+         <a target="_blank" class="btn {{ if button.outline: }}btn-outline{{ else: }}btn-{{ pass }}{{ =button.bootstrap_class[0] }}" href="{{ =button.url }}">{{ =button.name }}</a>
          {{ pass }}
      {{ pass }}
   </div>
