@@ -1,17 +1,15 @@
 {{extend 'layout.html'}}
 
-{{ for group in groups: }}
-<div class="card text-white bg-{{ =group.bootstrap_class[0] }}">
-  <div class="card-header">
-    {{ =group.name }}
-  </div>
-  <div class="card-body">
-    {{ for button in buttons: }}
-         {{ if button.button_group_id == group.id: }}
-         <a target="_blank" class="btn {{ if button.outline: }}btn-outline{{ else: }}btn-{{ pass }}{{ =button.bootstrap_class[0] }}" href="{{ =button.url }}">{{ =button.name }}</a>
-         {{ pass }}
-     {{ pass }}
-  </div>
+
+<div class="jumbotron jumbotron-fluid">
+<div class="container">
+<img src="{{ =URL('static', 'images/logo.png') }}"/>
+  <h1>SplinterLink</h1>
+  <p class="lead">Porque no te pod&eacute;s acordar de todos los sitios porno.</p>
+  <hr class="my-4">
+  <p>Este sitio utiliza una tecnolog&iacute;a demasiado compleja como para explicarla. Las credenciales son administradas por el Gran Bonete.</p>
+  <p class="lead">
+    <a class="btn btn-primary btn-lg" href="{{ =URL('button','show') }}" role="button">Empezar a Utilizar SplinterLink</a>
+  </p>
 </div>
-    <br/>
-{{ pass }}
+</div>

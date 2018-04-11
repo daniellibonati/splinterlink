@@ -13,6 +13,7 @@
           initial-scale = 1.0 retains dimensions instead of zooming out if page height > device height
           user-scalable = yes allows the user to zoom in -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="mobile-web-app-capable" content="yes">
     <title>SplinterLink</title>
     <!-- http://dev.w3.org/html5/markup/meta.name.html -->
     <meta name="application-name" content="SplinterLink">
@@ -71,9 +72,8 @@
                         <a class="dropdown-item" href="{{=URL('default','user/change_password')}}">{{=T('Change Password')}}</a>
                         <a class="dropdown-item" href="{{=URL('default','user/logout')}}">{{=T('Logout')}}</a> {{else:}}
                         <a class="dropdown-item" href="{{=URL('default','user/login')}}">{{=T('Login')}}</a>
-                        <a class="dropdown-item" href="{{=URL('default','user/register')}}">{{=T('Sign up')}}</a>
-                        <a class="dropdown-item" href="{{=URL('default','user/request_password')}}">{{=T('Lost Password')}}</a> {{pass}}
-                    </div>
+{{ pass }}                    
+</div>
                 </li>
             </ul>
             {{pass}}
@@ -86,23 +86,18 @@
     {{end}}
     <!-- Main ========================================= -->
     <!-- Begin page content -->
-    <div class="container main-container">
-      <div class="col-md-12">
+    <div class="container-fluid main-container">
         {{block center}}
         {{include}}
         {{end}}
         {{=response.toolbar() if response.show_toolbar else ''}}
-      </div>
     </div>
 
     {{block footer}} <!-- this is default footer -->
     <footer class="footer">
-      <div class="container">
-        <div class="copyright pull-left">{{=T('Copyright')}} &#169; {{=request.now.year}}</div>
-          <div id="poweredBy" class="pull-right">
-            {{=T('Powered by')}}
-            <a href="http://www.web2py.com/">web2py</a>
-          </div>
+      <div class="container" style="margin-top: 20px;">
+        <span class="copyright pull-left">{{=T('Copyright')}} &#169; {{=request.now.year}}</span>
+        <span style="float: right;"><img src="http://web2py.com/init/static/images/Stickers5.png"/></span>
       </div>
     </footer>
     {{end}}
@@ -111,6 +106,9 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script src="{{=URL('static','js/web2py-bootstrap4.js')}}"></script>
+    <script>
+    $('.btn-default').addClass('btn-outline-secondary');
+    </script>
     {{block page_js}}{{end page_js}}
     {{if response.google_analytics_id:}}
     <!-- Analytics ==================================== -->

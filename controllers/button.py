@@ -1,7 +1,13 @@
 # -*- coding: utf-8 -*-
-# intente algo como
-def index(): return dict(message="hello from button.py")
 
+@auth.requires_login()
 def manage():
     form = SQLFORM.grid(db.button)
     return dict(form=form)
+
+
+@auth.requires_login()
+def show():
+    groups = db(db.button_group).select()
+    buttons = db(db.button).select(orderby=db.button.name)
+    return dict(groups=groups, buttons=buttons)

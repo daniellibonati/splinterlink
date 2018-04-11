@@ -16,6 +16,10 @@ response.menu = [
 if not configuration.get('app.production'):
     _app = request.application
     response.menu += [
-        (T('Groups'), False, URL('group', 'manage')),
-        (T('Buttons'), False, URL('button', 'manage'))
+        (T('Buttons'), False, URL('button','show')),
+        (T('Manage'), False, '#', [
+            (T('Users'), False, URL('user', 'manage')),         
+            (T('Groups'), False, URL('group', 'manage')),
+            (T('Buttons'), False, URL('button', 'manage'))
+        ])
     ]

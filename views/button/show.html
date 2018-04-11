@@ -1,0 +1,18 @@
+{{extend 'layout.html'}}
+<div class="container">
+{{ for group in groups: }}
+<div class="card text-white bg-{{ =group.bootstrap_class[0] }}">
+  <div class="card-header">
+    {{ =group.name }}
+  </div>
+  <div class="card-body">
+    {{ for button in buttons: }}
+         {{ if button.button_group_id == group.id: }}
+         <a target="_blank" class="btn {{ if button.outline: }}btn-outline{{ else: }}btn-{{ pass }}{{ =button.bootstrap_class[0] }}" href="{{ =button.url }}">{{ =button.name }}</a>
+         {{ pass }}
+     {{ pass }}
+  </div>
+</div>
+    <br/>
+{{ pass }}
+</div>

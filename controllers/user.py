@@ -2,5 +2,5 @@
 
 @auth.requires_login()
 def manage():
-    form = SQLFORM.grid(db.button_group)
+    form = SQLFORM.grid(db.auth_user)
     return dict(form=form)

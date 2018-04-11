@@ -5,3 +5,4 @@ errors/
 sessions/
 private/appconfig.ini
 *.bak
+*.pyc
